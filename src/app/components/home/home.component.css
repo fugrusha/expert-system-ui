@@ -1,0 +1,24 @@
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image-admin {
+    background-image: url('https://png.pngtree.com/png-vector/20230316/ourmid/pngtree-admin-and-customer-service-job-vacancies-vector-png-image_6650726.png');
+    background-size: cover;
+}
+
+.example-header-image-user {
+    background-image: url('https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_48d356bf2b41aa5c0c23a99ece81bccc/poll-everywhere.png');
+    background-size: cover;
+}
+
+.main-container {
+    margin: 30px;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.left-card, .right-card {
+    padding: 10px;
+  }

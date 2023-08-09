@@ -1,0 +1,45 @@
+<app-main-toolbar></app-main-toolbar>
+<div class="main-container">
+
+    <div class="left-card">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image-admin"></div>
+                <mat-card-title>Інтефейс інженера знань</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="https://www.dexter.eu/wp-content/uploads/2020/07/Screen-Shot-2018-02-28-at-2.50.11-PM.png" alt="Photo of Knowledge Base">
+            <mat-card-content>
+                <p>
+                    Інженер зі знань визначає знання, дані та правила, що характеризують проблемну область.
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <nav>
+                    <button mat-button (click)="navigateToRules()">ПЕРЕЙТИ</button>
+                </nav>
+
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    
+
+    <div class="right-card">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image-user"></div>
+                <mat-card-title>Інтерфейс користувача ЕС</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="https://t2informatik.de/en/wp-content/uploads/sites/2/2022/01/user-interface-smartpedia-t2informatik.png" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    Користувач має можливість заповнити анкету відповівши на питання та отримати рекомендації
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button (click)="navigateToSurvey()">ПЕРЕЙТИ</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    
+
+</div>

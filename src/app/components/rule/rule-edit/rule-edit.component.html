@@ -1,0 +1,53 @@
+<div class="modal-window">
+
+    <div mat-dialog-title>
+        <h1>Редагування правила</h1>
+    </div>
+
+    <form [formGroup]="ruleForm" (ngSubmit)="onFormSubmit()">
+        <div mat-dialog-content class="modal-content">
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Назва правила</mat-label>
+                    <input matInput placeholder="rule1" required formControlName="name">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Опис</mat-label>
+                    <input matInput placeholder="Деталі правила" required formControlName="description">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Приорітет</mat-label>
+                    <input matInput placeholder="1" required type="number" formControlName="priority">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Умова</mat-label>
+                    <input matInput placeholder="Умова, яка повертає true" required formControlName="condition">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Результат виконання</mat-label>
+                    <input matInput placeholder="Вираз, що відбудеться при виконанні умови" required formControlName="action">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="modal-actions">
+            <button mat-flat-button color="warn" type="button" [mat-dialog-close]="[false]">Відміна</button>
+            <button mat-flat-button coloe="primary" type="submit">Зберегти</button>
+        </div>
+
+    </form>
+
+</div>

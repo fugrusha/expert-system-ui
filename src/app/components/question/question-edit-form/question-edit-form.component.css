@@ -1,0 +1,47 @@
+.modal-window {
+    display: block;
+    padding: 15px;
+    width: 600px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Styles for the chip grid container */
+.custom-chip-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Styles for individual chip rows */
+.custom-chip-row {
+    background-color: #e0e0e0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Styles for the chip input */
+.custom-chip-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 4px 8px;
+    background-color: transparent;
+    font-size: 14px;
+}
+
+/* Styles for chip remove button */
+.mat-chip-remove {
+    color: #666;
+    cursor: pointer;
+}

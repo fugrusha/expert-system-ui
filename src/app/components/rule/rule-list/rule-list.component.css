@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+
+.page-container {
+    margin: 50px;
+}
+
+.create-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

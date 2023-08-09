@@ -1,0 +1,72 @@
+<div class="modal-window">
+
+    <div mat-dialog-title>
+        <h1>Редагування питання</h1>
+    </div>
+
+    <form [formGroup]="questionForm" (ngSubmit)="onFormSubmit()">
+        <div mat-dialog-content class="modal-content">
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Ідентифікатор питання</mat-label>
+                    <input matInput placeholder="question1" required formControlName="key">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-radio-group aria-label="Тип питання" formControlName="questionType"
+                    [(ngModel)]="chosenQuestionType">
+                    <mat-label>Тип питання</mat-label>
+                    <mat-radio-button value="YES_NO">Так чи Ні</mat-radio-button>
+                    <mat-radio-button value="SELECT">Вибір зі списку</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Введіть питання</mat-label>
+                    <input matInput placeholder="Який твій улюблений колір?" required formControlName="question">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row" *ngIf="chosenQuestionType === 'SELECT'">
+                <mat-form-field>
+                    <mat-label>Варіанти відповідей (через ',' чи ENTER)</mat-label>
+                    <mat-chip-grid #myChipGrid class="custom-chip-grid">
+                        <mat-chip-row *ngFor="let answer of answers" [removable]="true" (removed)="removeAnswer(answer)" class="custom-chip-row">
+                            {{ answer }}
+                            <button matChipRemove class="mat-chip-remove">
+                                <mat-icon matChipRemove>cancel</mat-icon>
+                            </button>
+                        </mat-chip-row>
+                        <input matInput [matChipInputFor]="myChipGrid"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            (matChipInputTokenEnd)="addAnswer($event)" formControlName="answers"  class="custom-chip-input">
+                    </mat-chip-grid>
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Пояснення</mat-label>
+                    <input matInput placeholder="Пояснення до питання" required formControlName="comment">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Порядковий номер питання</mat-label>
+                    <input matInput placeholder="1" required type="number" formControlName="order">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="modal-actions">
+            <button mat-flat-button color="warn" type="button" [mat-dialog-close]="[false]">Відміна</button>
+            <button mat-flat-button coloe="primary" type="submit">Зберегти</button>
+        </div>
+
+    </form>
+
+</div>

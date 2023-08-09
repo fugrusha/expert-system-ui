@@ -1,0 +1,14 @@
+.modal-window {
+    display: block;
+    padding: 15px;
+    width: 600px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+}

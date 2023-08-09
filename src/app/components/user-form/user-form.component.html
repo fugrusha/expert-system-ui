@@ -1,0 +1,65 @@
+<app-user-toolbar></app-user-toolbar>
+
+<div class="page-container">
+
+    <h1>Анкета</h1>
+    <p>Дайте відповіді на наступні питання, щоб експертна система надала вам рекомендації</p>
+
+
+    <mat-stepper orientation="vertical" #stepper>
+
+        <ng-container *ngFor="let question of questions; let i = index">
+
+            <mat-step [label]="question.question">
+                <ng-template matStepLabel>
+                    {{ question.question }}
+                    <mat-icon #tooltip="matTooltip" [matTooltip]="question.comment" matTooltipPosition="right"
+                        matTooltipHideDelay="100000"
+                        aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+                        class="comment-button">
+                        info
+                    </mat-icon>
+                </ng-template>   
+
+                <mat-radio-group *ngIf="question.questionType === 'YES_NO'" [(ngModel)]="selectedValue">
+                    <mat-radio-button value="YES">Так</mat-radio-button>
+                    <mat-radio-button value="NO">Ні</mat-radio-button>
+                </mat-radio-group>
+
+                <mat-form-field *ngIf="question.questionType === 'SELECT'">
+                    <mat-label>Оберіть один з варіантів</mat-label>
+                    <mat-select disableRipple [(value)]="selectedValue"
+                        (selectionChange)="addSelectedAnswer(question.key)">
+
+                        <ng-container *ngFor="let optionValue of question.answers; let i = index">
+                            <mat-option [value]="optionValue">
+                                {{ optionValue }}
+                            </mat-option>
+                        </ng-container>
+
+                    </mat-select>
+                </mat-form-field>
+
+
+
+                <div>
+                    <button mat-button matStepperPrevious *ngIf="i !== 0">Назад</button>
+                    <button mat-button matStepperNext (click)="addSelectedAnswer(question.key)">Далі</button>
+                </div>
+            </mat-step>
+
+        </ng-container>
+
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>Чудово! Тепер експертна система аналізує твої відповіді</p>
+            <div>
+                <button mat-button matStepperPrevious>Назад</button>
+                <button mat-button (click)="onSubmit()">Відправити</button>
+                <button mat-button (click)="stepper.reset()">Перезаповнити</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+
+
+</div>
