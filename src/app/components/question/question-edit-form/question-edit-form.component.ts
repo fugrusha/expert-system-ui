@@ -56,6 +56,7 @@ export class QuestionEditFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.questionForm.patchValue(this.data)
+    this.chosenQuestionType = this.data.questionType
   }
 
   onFormSubmit() {

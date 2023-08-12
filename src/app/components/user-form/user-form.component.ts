@@ -47,6 +47,8 @@ export class UserFormComponent implements OnInit {
 
   selectedValue: string; // Property to hold the selected value
 
+  recommendations: string[] = [];
+
   constructor(
     private _formBuilder: FormBuilder,
     private _questionService: QuestionService,
@@ -85,7 +87,10 @@ export class UserFormComponent implements OnInit {
     console.log(this.userForm);
 
     this._userFormService.sendUserForm(this.userForm)
-      .subscribe(res => console.log);
+      .subscribe(res => {
+        console.log(res);
+        this.recommendations = res;
+      });
   }
 
 }
