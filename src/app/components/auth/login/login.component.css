@@ -1,0 +1,40 @@
+/* Center the login form vertically and horizontally */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust as needed for your layout */
+    background-color: #f0f0f0; /* Background color for the login page */
+  }
+  
+  /* Style the form header */
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  /* Style the form fields */
+  mat-form-field {
+    width: 100%;
+    max-width: 300px; /* Adjust the maximum width as needed */
+    margin-bottom: 15px;
+  }
+  
+  /* Style the form button */
+  button[type="submit"] {
+    width: 100%;
+    max-width: 300px; /* Adjust the maximum width as needed */
+  }
+  
+  /* Add some padding to the form container */
+  .login-container {
+    padding: 20px;
+  }
+  
+  /* Style for error messages (if you plan to display any) */
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+  }

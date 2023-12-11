@@ -1,0 +1,41 @@
+/* Style the container for the search input */
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+/* Style the search input itself */
+.mat-input-element {
+    flex: 1; /* Allow the input to expand within the container */
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%; /* Set the width to 100% */
+}
+
+/* Style the search icon */
+.search-icon {
+    color: #333;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+/* Style the clear icon (if needed) */
+.clear-icon {
+    color: #ccc;
+    cursor: pointer;
+}
+
+/* Hover effect for icons (optional) */
+.search-icon:hover,
+.clear-icon:hover {
+    color: #555;
+}

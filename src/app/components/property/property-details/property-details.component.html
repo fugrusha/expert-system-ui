@@ -1,0 +1,56 @@
+<app-seller-toolbar></app-seller-toolbar>
+
+<div class="property-details">
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ property.title }}</mat-card-title>
+      <mat-card-subtitle>{{ property.status }}</mat-card-subtitle>
+      <mat-card-title>{{ property.price }} $</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-actions *ngIf="isLoggedIn() && getUserType() === 'BUYER'">
+      <mat-icon>favorite</mat-icon>
+      <button mat-button (click)="addToFavorites(property.id)">Додати до улюбленного</button>
+      
+      <mat-icon>account_balance</mat-icon>
+      <button mat-button (click)="sendApplicationToBuy(property.id)">Придбати</button>
+    </mat-card-actions>
+
+    <app-image-gallery [imageUrls]="getImageUrls()"></app-image-gallery>
+
+    <mat-card-content>
+
+      <p>
+        <strong>Місто:</strong>
+        {{ property.city }}
+      </p>
+      <p>
+        <strong>Кількість спалень:</strong>
+        {{ property.bedrooms }}
+      </p>
+      <p>
+        <strong>Кількість ванних кімнат:</strong>
+        {{ property.bathrooms }}
+      </p>
+      <p>
+        <strong>Загальна площа:</strong>
+        {{ property.squareFootage }}
+        м.кв.
+      </p>
+      <p>
+        <strong>Опис:</strong><br>
+        {{ property.description }}
+      </p>
+
+      <mat-chip-listbox aria-label="Property features">
+        <mat-chip *ngFor="let feature of property.features">
+          <img matChipAvatar src="https://cdn-icons-png.flaticon.com/512/5219/5219370.png" alt="Feature icon" />
+          {{ feature.featureName }}
+        </mat-chip>
+      </mat-chip-listbox>
+    </mat-card-content>
+  </mat-card>
+
+</div>

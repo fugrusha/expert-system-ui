@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { UserToolbarComponent } from '../ui/user-toolbar/user-toolbar.component';
+import { SellerToolbarComponent } from '../ui/seller-toolbar/seller-toolbar.component';
 
 
 @Component({
@@ -34,7 +35,8 @@ import { UserToolbarComponent } from '../ui/user-toolbar/user-toolbar.component'
     MatFormFieldModule,
     MatTooltipModule,
     MatIconModule,
-    UserToolbarComponent
+    UserToolbarComponent,
+    SellerToolbarComponent
   ],
 })
 export class UserFormComponent implements OnInit {

@@ -1,0 +1,47 @@
+<app-seller-toolbar></app-seller-toolbar>
+<div class="login-container">
+
+  <h2>{{ isRegistering ? 'Реєстрація' : 'Вхід' }}</h2>
+
+  <form *ngIf="!isRegistering" (ngSubmit)="onLoginSubmit()">
+    <!-- Login Form -->
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" id="username" name="username" [(ngModel)]="loginData.username" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Пароль</mat-label>
+      <input matInput type="password" id="password" name="password" [(ngModel)]="loginData.password" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Увійти</button>
+  </form>
+
+  <!-- Registration Form -->
+  <form *ngIf="isRegistering" (ngSubmit)="onRegisterSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Створити профіль як:</mat-label>
+      <mat-select [(ngModel)]="registerData.userType" name="userType" required>
+        <mat-option *ngFor="let userType of userTypes" [value]="userType">
+          {{ userType }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" id="reg-username" name="reg-username" [(ngModel)]="registerData.username" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Пароль</mat-label>
+      <input matInput type="password" id="reg-password" name="reg-password" [(ngModel)]="registerData.password" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" id="reg-email" name="reg-email" [(ngModel)]="registerData.email" required>
+    </mat-form-field>
+    <!-- Add the missing fields here -->
+    <button mat-raised-button color="accent" type="submit">Зареєструватися</button>
+  </form>
+
+  <button mat-button color="primary" (click)="toggleForm()">{{ isRegistering ? 'Вже зареєстрований? Увійти' : 'Перейти до реєстрації' }}</button>
+
+</div>

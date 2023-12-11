@@ -1,0 +1,122 @@
+<div class="modal-window">
+
+    <div mat-dialog-title>
+        <h1>Редагування оголошення</h1>
+    </div>
+
+    <form [formGroup]="propertyForm" (ngSubmit)="onFormSubmit()">
+        <div mat-dialog-content class="modal-content">
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Заголовок</mat-label>
+                    <input matInput placeholder="Продам дім..." required formControlName="title">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Місто</mat-label>
+                    <mat-select formControlName="city">
+                        <mat-option *ngFor="let city of cities" [value]="city.name">
+                          {{ city.name }}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+            </div>
+
+            <!-- <div class="input-row">
+                <mat-radio-group aria-label="Тип нерухомості" formControlName="propertyType"
+                    [(ngModel)]="chosenPropertyType">
+                    <mat-label>Тип нерухомості</mat-label>
+                    <mat-radio-button value="FLAT">Квартира</mat-radio-button>
+                    <mat-radio-button value="HOUSE">Будинок</mat-radio-button>
+                </mat-radio-group>
+            </div> -->
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Ціна, $</mat-label>
+                    <input matInput required type="number" formControlName="price">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Кількість спалень</mat-label>
+                    <input matInput placeholder="1" required type="number" formControlName="bedrooms">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Кількість ванних кімнат</mat-label>
+                    <input matInput placeholder="1" required type="number" formControlName="bathrooms">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Загальна площа</mat-label>
+                    <input matInput placeholder="1" required type="number" formControlName="squareFootage">
+                </mat-form-field>
+            </div>
+
+            <div class="input-row">
+                <mat-form-field>
+                    <mat-label>Опис</mat-label>
+                    <textarea matInput matTextareaAutosize placeholder="У будинку 4 кімнати" required formControlName="description"></textarea>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field>
+                <mat-label>Ключові слова (через ',' чи ENTER)</mat-label>
+                <mat-chip-grid #myChipGrid class="custom-chip-grid">
+                    <mat-chip-row *ngFor="let feature of features" [removable]="true" (removed)="removeFeature(feature)" class="custom-chip-row">
+                        {{ feature }}
+                        <button matChipRemove class="mat-chip-remove">
+                            <mat-icon matChipRemove>cancel</mat-icon>
+                        </button>
+                    </mat-chip-row>
+                    <input matInput [matChipInputFor]="myChipGrid"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        (matChipInputTokenEnd)="addFeature($event)" formControlName="features"  class="custom-chip-input">
+                </mat-chip-grid>
+            </mat-form-field>
+
+            <div class="center">
+                <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
+                (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                      Додайте фото обʼєкту нерухомості
+                      <button type="button" (click)="openFileSelector()">Обрати</button>
+                    </ng-template>
+                </ngx-file-drop>
+                <div class="upload-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Файл</th>
+                            </tr>
+                        </thead>
+                        <tbody class="upload-name-style">
+                            <tr *ngFor="let item of files; let i=index">
+                                <td><strong>{{ item.relativePath }}</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        
+
+        <div mat-dialog-actions class="modal-actions">
+            <button mat-flat-button color="warn" type="button" [mat-dialog-close]="[false]">Відміна</button>
+            <button mat-flat-button coloe="primary" type="submit">Зберегти</button>
+        </div>
+
+    </form>
+
+</div>

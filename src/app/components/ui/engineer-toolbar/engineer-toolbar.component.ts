@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class EngineerToolbarComponent {
 
-  title: string = 'Експертна система з підбору житла у м. Дніпро'
+  title: string = 'Помічник з підбору житла'
 
   constructor(private router: Router) { }
 

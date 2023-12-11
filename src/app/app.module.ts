@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { MainToolbarComponent } from './components/ui/main-toolbar/main-toolbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
-import { EngineerToolbarComponent } from './components/ui/engineer-toolbar/engineer-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { EngineerToolbarComponent } from './components/ui/engineer-toolbar/engin
     ReactiveFormsModule,
     MatChipsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

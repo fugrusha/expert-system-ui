@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>home</mat-icon>
+    </button>
+    <span>{{ title }}</span>
+    <span class="example-spacer"></span>
+
+    <nav>
+        <button mat-flat-button class="menu-button" (click)="navigateToHomePage()">Головна</button>
+
+        <button mat-flat-button class="menu-button" 
+        *ngIf="isLoggedIn() && getUserType() === 'SELLER'"
+        (click)="navigateToSellerProperty()">Моя нерухомість</button>
+
+        <button mat-flat-button class="menu-button"
+        *ngIf="isLoggedIn()" (click)="navigateToApplications()">Заявки</button>
+
+        <button mat-flat-button class="menu-button" 
+        *ngIf="isLoggedIn() && getUserType() === 'BUYER'" (click)="navigateToFavorites()">Збережені</button>
+
+        <button mat-flat-button class="menu-button" (click)="survey()">Помічник</button>
+
+        <!-- <button mat-flat-button class="menu-button" 
+        *ngIf="isLoggedIn()" (click)="navigateToMyProfile()">Мій профіль</button> -->
+
+        <button mat-flat-button class="menu-button"
+        *ngIf="!isLoggedIn()" (click)="login()">Увійти\Зареєструватись</button>
+
+        <button mat-flat-button class="menu-button"
+        *ngIf="isLoggedIn()" (click)="logout()">Вийти</button>
+    </nav>
+</mat-toolbar>

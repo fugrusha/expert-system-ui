@@ -1,0 +1,20 @@
+.example-card {
+    max-width: 100%;
+    display: inline-block;
+    text-align: left;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+
+.property-details {
+    text-align: center;
+}
+
+/* .proportional-image {
+    max-width: 100%;
+    height: auto;
+  } */

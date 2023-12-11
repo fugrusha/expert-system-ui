@@ -1,0 +1,48 @@
+<app-seller-toolbar></app-seller-toolbar>
+
+<div class="page-container">
+
+    <mat-card>
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Заявка на придбання "{{ buyerRequest.property.title }}"</mat-card-title>
+            <mat-card-subtitle>{{ buyerRequest.status }}</mat-card-subtitle>
+            <mat-card-title>{{ buyerRequest.property.price }} $</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <p><strong>Покупець:</strong> {{ buyerRequest.buyer.firstName }} {{ buyerRequest.buyer.lastName }}</p>
+            <div *ngIf="(buyerRequest.status === BuyerRequestStatus.PROCESSING 
+            || buyerRequest.status === BuyerRequestStatus.COMPLETED)
+            && getUserType() === 'BUYER'">
+                <p><strong>Продавець:</strong> {{ buyerRequest.seller.firstName }} {{ buyerRequest.seller.lastName }}
+                </p>
+                <p><strong>Контакти:</strong> {{ buyerRequest.seller.phone }} / {{ buyerRequest.seller.email }} 
+                </p>
+            </div>
+            <p><strong>Оголошення:</strong> {{ buyerRequest.property.title }}</p>
+            <p><strong>Час створення:</strong> {{ buyerRequest.timestamp | date }}</p>
+        </mat-card-content>
+
+        <mat-card-actions *ngIf="isLoggedIn()">
+            <mat-icon>visibility</mat-icon>
+            <button mat-button (click)="openPropertyCard(buyerRequest.property.id)">Переглянути оголошення</button>
+
+            <div *ngIf="buyerRequest.status === BuyerRequestStatus.NEW && getUserType() === 'SELLER'">
+                <mat-icon>contact_phone</mat-icon>
+                <button mat-button (click)="processBuyerRequest(buyerRequest.id)">Відкрити контакти</button>
+            </div>
+
+            <div *ngIf="buyerRequest.status === BuyerRequestStatus.PROCESSING && getUserType() === 'SELLER'">
+                <mat-icon>monetization_on</mat-icon>
+                <button mat-button (click)="completeBuyerRequest(buyerRequest.id)">Підтвердити продаж</button>
+            </div>
+
+            <div
+                *ngIf="buyerRequest.status === BuyerRequestStatus.NEW || buyerRequest.status === BuyerRequestStatus.PROCESSING">
+                <mat-icon color="warn">cancel</mat-icon>
+                <button mat-button color="warn" (click)="cancelBuyerRequest(buyerRequest.id)">Скасувати заявку</button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>

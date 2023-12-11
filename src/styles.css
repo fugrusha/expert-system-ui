@@ -2,3 +2,8 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.custom-page-width {
+    max-width: 80%; /* Adjust the value to set the desired width */
+    margin: 0 auto; /* Center the content horizontally if needed */
+  }

@@ -1,0 +1,5 @@
+<div class="search-container">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input class="mat-input-element" matInput placeholder="Пошук" [(ngModel)]="searchText" (input)="onSearchInput()">
+    <mat-icon class="clear-icon" (click)="clearSearchInput()">clear</mat-icon>
+</div>
